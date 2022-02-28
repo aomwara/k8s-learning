@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: client
+  template:
+    metadata:
+      name: nginx-pods
+      labels:
+        app: client
+    spec:
+      containers:
+        - name: client
+          image: nginx
